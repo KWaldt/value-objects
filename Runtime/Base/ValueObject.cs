@@ -9,6 +9,10 @@ namespace KristinaWaldt.ValueObjects
 	public abstract class ValueObject : ScriptableObject
 	{
 		public event Action ValueChanged;
+		
+		// Note: If you rename this, please also change ValueObjectEditor.
+		[SerializeField, TextArea]
+		private string description;
 
 		[HideInInspector]
 		public string id = GetRandomId();

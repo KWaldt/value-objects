@@ -8,6 +8,9 @@ namespace KristinaWaldt.ValueObjects
     [CustomEditor(typeof(ValueObject), true), CanEditMultipleObjects]
     public class ValueObjectEditor : Editor
     {
+        public const string DescriptionPropertyName = "description";
+        public const string DefaultValuePropertyName = "defaultValue";
+        
         public override void OnInspectorGUI()
         {
             DrawId(serializedObject, targets);
@@ -15,6 +18,11 @@ namespace KristinaWaldt.ValueObjects
             var t = target as ValueObject;
 
             DrawRuntimeValue(t);
+        }
+
+        public static void DrawDescription(SerializedObject serializedObject)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(DescriptionPropertyName));
         }
 
         public static void DrawScriptField(Object target, Type type)

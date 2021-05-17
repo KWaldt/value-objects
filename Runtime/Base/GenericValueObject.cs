@@ -7,7 +7,8 @@ namespace KristinaWaldt.ValueObjects
     public abstract class GenericValueObject<T> : ValueObject, ISerializationCallbackReceiver
     {
         public event Action<T> ValueChangedTo;
-        
+
+        // Note: If you rename this, please also change ValueObjectEditor.
         [SerializeField]
         private T defaultValue;
 
