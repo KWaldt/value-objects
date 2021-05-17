@@ -1,0 +1,6 @@
+{
+  "name": "com.kristinawaldt.value-objects",
+  "version": "1.0.0",
+  "displayName": "Value Objects",
+  "description": "ScriptableObject variables and example implementations.\nCan be extended for custom components/types."
+}
