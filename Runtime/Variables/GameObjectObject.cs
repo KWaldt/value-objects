@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace KristinaWaldt.ValueObjects
 {
-    [CreateAssetMenu(fileName = "GameObjectObject", menuName = "Data/Variable/GameObject")]
+    [CreateAssetMenu(fileName = "GameObjectObject", menuName = MenuPath + "GameObject")]
     public class GameObjectObject : GenericValueObject<GameObject>
     {
         public bool IsAssigned()

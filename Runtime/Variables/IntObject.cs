@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace KristinaWaldt.ValueObjects
 {
-    [CreateAssetMenu(fileName = "IntObject", menuName = "Data/Variable/Int")]
+    [CreateAssetMenu(fileName = "IntObject", menuName = MenuPath + "Int")]
     public class IntObject : GenericValueObject<int>
     {
         // NOTE: This one has a custom inspector without nameof.

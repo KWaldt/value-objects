@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace KristinaWaldt.ValueObjects
 {
-    [CreateAssetMenu(fileName = "StringObject", menuName = "Data/Variable/String")]
+    [CreateAssetMenu(fileName = "StringObject", menuName = MenuPath + "String")]
     public class StringObject : GenericValueObject<string>
     {
         public bool HasValue()

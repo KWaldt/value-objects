@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace KristinaWaldt.ValueObjects
 {
-    [CreateAssetMenu(fileName = "FloatObject", menuName = "Data/Variable/Float")]
+    [CreateAssetMenu(fileName = "FloatObject", menuName = MenuPath + "Float")]
     public class FloatObject : GenericValueObject<float>
     {
     }

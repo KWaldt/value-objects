@@ -8,6 +8,7 @@ namespace KristinaWaldt.ValueObjects
 	/// </summary>
 	public abstract class ValueObject : ScriptableObject
 	{
+		public const string MenuPath = "Data/Variable/";
 		public event Action ValueChanged;
 		
 		// Note: If you rename this, please also change ValueObjectEditor.

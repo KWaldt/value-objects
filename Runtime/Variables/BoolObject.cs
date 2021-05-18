@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace KristinaWaldt.ValueObjects
 {
-    [CreateAssetMenu(fileName = "BoolObject", menuName = "Data/Variable/Bool")]
+    [CreateAssetMenu(fileName = "BoolObject", menuName = MenuPath + "Bool")]
     public class BoolObject : GenericValueObject<bool>
     {
         public void Flip()
