@@ -18,6 +18,9 @@ The Value Objects are extendable for your own custom types and come with a custo
 
 ## Variable Settings
 * Default Value: The value the ScriptableObject is reset to at game start.
+* Description: Not accessible in scripts - that one's just for you in case the variable name isn't clear enough.
+* ID: GUID, auto-generated on creation. If you duplicate the ScriptableObject please hit the "Generate" button for a new ID.
+  * You don't necessarily need the ID, but it works well with save systems. In that case you might also want to write a checker to make sure that they are all unique.
 * IntObject: Optiona minimum value. Useful for things like health that should never fall below zero.
 
 ## In Scripts / UnityEvents
@@ -27,9 +30,10 @@ The Value Objects are extendable for your own custom types and come with a custo
   * You can't use GenericValueObject because Unity doesn't do well with generic fields.
   * Value object lacks all type-specific things like "RuntimeValue", but it supports the "ValueChanged" event and a "StringOutput" of the value.  
 * Values
-  * RuntimeValue (Property): The current value. Can read and write.
+  * RuntimeValue (Property: T): The current value. Can read and write.
+  * ID (Field: string): Useful if you want to use it with a save system.
   * ValueChanged (Event): Gets called when the value changes.
-  * ValueChangedTo (Event): Gets called when the value changes and sends the current value.
+  * ValueChangedTo (Event: T): Gets called when the value changes and sends the current value.
   * StringOutput : Gets the RuntimeValue as a string. Sometimes that's a changed result.
     * e.g. GameObjetObject outputs gameObject.name
   * Some types have extra methods to make them more comfortable or easier to use in UnityEvents. 
@@ -44,7 +48,19 @@ The Value Objects are extendable for your own custom types and come with a custo
 * GenericValueObject: This is what you inherit from when you make your own ScriptableObject variables.
 
 ## Variable Types
-(TODO)
+* Bool
+* Float
+* GameObjectObject
+* Int
+* String
 
-## Implementations
-(TODO)
+## Example Components
+* AssignToGameObjectObject
+  * Assigns the current gameObject to the ScriptableObject in Awake. Useful for storing the player and similar. Remember that if you want to use the RuntimeValue of the GameObjectObject in another script, you need to do so in Start. (Or else it isn't assigned yet.)
+* OnValueObjectChange
+  * Invokes a UnityEvent when a ValueObject changes. (Works with any type, e.g bool, float, string...) Useful to connect behaviours without scripting.
+    * Example: If the coinCount (IntObject) changes, play sounds, particles, deactivate an object etc.
+* SetTextToIntObject
+  * Sets the TextMeshProUGUI to an IntObject with optinal padding. (e.g. 1 → 001)
+* SetTextToValueObject
+  * Sets the TextMeshProUGUI to StringOutput() of a ValueObject. That's typically the RuntimeValue, but that can be overwritten. (e.g. GameObjectObject doesn't output "gameObject" but either the gameObject.name or "(none)".)
