@@ -21,7 +21,7 @@ The Value Objects are extendable for your own custom types and come with a custo
 * IntObject: Optiona minimum value. Useful for things like health that should never fall below zero.
 
 ## In Scripts / UnityEvents
-* You can create serialized fields that either reference the type directly (e.g. BoolValue) or the parent (ValueObject).
+* You can create serialized fields that either reference the type directly (e.g. BoolValue) or the parent (ValueObject).  
   ```[SerializeField] private ValueObject valueObject;```  
   ```[SerializeField] private GameObjectObject playerObject;```
   * You can't use GenericValueObject because Unity doesn't do well with generic fields.
