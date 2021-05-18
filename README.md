@@ -40,7 +40,55 @@ The Value Objects are extendable for your own custom types and come with a custo
     * e.g. "Add" in IntObject
     
 # Extending
-(TODO)
+* Create a new script.
+  * If you use Script Templates: the one for ScriptableObjects will do just fine.
+* Inherit from GenericValueObject<YOURTYPE>.
+* Add the CreateAssetMenu attribute.
+  * If you want, you can use the constant "MenuPath" to have your ValueObject in the same place as the others.
+* You can add some quality of life functions to it. 
+
+Here's the bare-minimum example:
+```
+using KristinaWaldt.ValueObjects;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "AudioSource", menuName = MenuPath + "AudioSource")]
+public class AudioSourceObject : GenericValueObject<AudioSource>
+{
+}
+```
+
+And if you love yourself, you could so something like this:
+```
+using KristinaWaldt.ValueObjects;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "AudioSource", menuName = MenuPath + "AudioSource")]
+public class AudioSourceObject : GenericValueObject<AudioSource>
+{
+    public bool IsAssigned()
+    {
+        return RuntimeValue != null;
+    }
+
+    public void PlayIfPossible()
+    {
+        if (!IsAssigned())
+            return;
+
+        RuntimeValue.Play();
+    }
+
+    public void PlayOneShotIfPossible(AudioClip clip, float volumeScale = 1f)
+    {
+        if (!IsAssigned())
+            return;
+
+        RuntimeValue.PlayOneShot(clip, volumeScale);
+    }
+}
+```
+Of course this depends on your needs. You can always add QoL functions later when you realise that you're doing something often.
 
 # Content
 ## Basics
