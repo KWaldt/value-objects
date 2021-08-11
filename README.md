@@ -112,3 +112,7 @@ Of course this depends on your needs. You can always add QoL functions later whe
   * Sets the TextMeshProUGUI to an IntObject with optinal padding. (e.g. 1 → 001)
 * SetTextToValueObject
   * Sets the TextMeshProUGUI to StringOutput() of a ValueObject. That's typically the RuntimeValue, but that can be overwritten. (e.g. GameObjectObject doesn't output "gameObject" but either the gameObject.name or "(none)".)
+ 
+## Special
+* Referencer
+  * This is a dirty fix to deal with the changed serialization in Unity 2020. It's a singleton that where you (manually) link all your Value Objects so that the reference never gets lost.
