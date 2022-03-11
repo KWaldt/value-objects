@@ -1,6 +1,11 @@
 {
   "name": "com.kristinawaldt.value-objects",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "Value Objects",
-  "description": "ScriptableObject variables and example implementations.\nCan be extended for custom components/types."
+  "description": "ScriptableObject variables and example implementations.\nCan be extended for custom components/types.",
+  "author": {
+    "name": "Kristina Waldt",
+    "email": "info@kristinawaldt.com",
+    "url": "https://www.kristinawaldt.com"
+  }
 }
